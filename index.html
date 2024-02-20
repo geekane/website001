@@ -1,8 +1,102 @@
 <html>
 <head>
-  <title>我的第一个网站</title>
+  <title>我的第二个网站</title>
+  <style>
+    /* 这里是一些样式代码，用来美化网页的外观 */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+    p {
+      color: #666;
+      text-align: justify;
+      margin: 10px 20px;
+    }
+    a {
+      color: #00f;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #nav {
+      width: 200px;
+      float: left;
+      background-color: #eee;
+      padding: 10px;
+    }
+    #nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #nav li {
+      margin: 5px 0;
+    }
+    #main {
+      margin-left: 220px;
+      padding: 10px;
+    }
+    #footer {
+      clear: both;
+      background-color: #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // 这里是一些脚本代码，用来实现网页的一些动态效果
+    function showTime() {
+      // 这个函数用来显示当前的时间
+      var date = new Date();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      var ampm = hour >= 12 ? 'PM' : 'AM';
+      hour = hour % 12;
+      hour = hour ? hour : 12;
+      minute = minute < 10 ? '0' + minute : minute;
+      second = second < 10 ? '0' + second : second;
+      var time = hour + ':' + minute + ':' + second + ' ' + ampm;
+      document.getElementById('time').innerHTML = time;
+      setTimeout(showTime, 1000);
+    }
+    function changeColor() {
+      // 这个函数用来随机改变标题的颜色
+      var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+      var random = Math.floor(Math.random() * colors.length);
+      var color = colors[random];
+      document.getElementById('title').style.color = color;
+    }
+  </script>
 </head>
-<body>
-  <h1>你好，这是我的第一个网站！</h1>
+<body onload="showTime()">
+  <h1 id="title" onclick="changeColor()">你好，这是我的第二个网站！</h1>
+  <div id="nav">
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">关于我</a></li>
+      <li><a href="#">我的作品</a></li>
+      <li><a href="#">联系我</a></li>
+    </ul>
+  </div>
+  <div id="main">
+    <p>这是一个稍微更复杂的网站，它使用了一些样式和脚本，来增加网页的美观和互动性。</p>
+    <p>你可以点击标题，看看它会变成什么颜色。</p>
+    <p>你也可以看看右下角，有一个显示当前时间的小工具。</p>
+    <p>你还可以在左边的导航栏，选择你感兴趣的内容。</p>
+    <p>这只是一个简单的示例，你可以在这个基础上，添加更多的内容和功能，来打造你自己的网站。</p>
+  </div>
+  <div id="footer">
+    <span id="time"></span>
+    <span>© 2024 Copilot. All rights reserved.</span>
+  </div>
 </body>
 </html>
